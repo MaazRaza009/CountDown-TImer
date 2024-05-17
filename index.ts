@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+import chalk from "chalk";
 import { differenceInSeconds } from "date-fns";
 import inquirer from "inquirer";
 
@@ -27,7 +28,7 @@ function startTime(val:number){
         const timeDiff = differenceInSeconds(intervalTime, currTime);
 
         if(timeDiff <= 0){
-            console.log("Timer has expired");
+            console.log(chalk.yellowBright("Timer has expired"));
             process.exit()
         }
         const min = Math.floor((timeDiff % (3600*24))/3600)
